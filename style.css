@@ -1,0 +1,158 @@
+:root {
+  --bg: #fff9ec;
+  --bg-alt: #f1ebff;
+  --ink: #2a1a4a;
+  --muted: #6a5c86;
+  --purple: #7c3aed;
+  --purple-dark: #5b21b6;
+  --gold: #ffc233;
+  --gold-dark: #e0a000;
+  --green: #22c55e;
+  --red: #ff3d3d;
+  --card: #ffffff;
+  --radius: 20px;
+  --shadow: 0 6px 0 rgba(42, 26, 74, .12), 0 14px 30px rgba(42, 26, 74, .10);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Nunito", system-ui, sans-serif;
+  font-weight: 500;
+  line-height: 1.6;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--purple-dark); }
+h1, h2, h3 { font-family: "Baloo 2", "Nunito", sans-serif; line-height: 1.1; margin: 0; }
+
+.wrap { width: min(1100px, 100% - 32px); margin-inline: auto; }
+
+/* nav */
+.nav {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(255, 249, 236, .92);
+  backdrop-filter: blur(8px);
+  border-bottom: 3px solid var(--ink);
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 8px 0; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 1.2rem; }
+.brand img { border-radius: 12px; }
+.nav nav { display: flex; gap: 20px; }
+.nav nav a { text-decoration: none; color: var(--ink); font-weight: 800; }
+.nav nav a:hover { color: var(--purple); }
+
+/* buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: 3px solid var(--ink);
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  text-decoration: none;
+  box-shadow: 0 4px 0 var(--ink);
+  transition: transform .12s, box-shadow .12s;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 6px 0 var(--ink); }
+.btn:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--ink); }
+.btn-primary { background: var(--gold); color: var(--ink); }
+.btn-ghost { background: #fff; color: var(--ink); }
+.btn-red { background: var(--red); color: #fff; }
+.btn:focus-visible, a:focus-visible { outline: 3px solid var(--purple); outline-offset: 3px; }
+
+/* hero */
+.hero { padding: 64px 0 72px; background: radial-gradient(circle at 85% 20%, #e4d7ff 0, transparent 45%), var(--bg); }
+.hero-inner { display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: center; }
+.eyebrow {
+  display: inline-block; margin: 0 0 14px; padding: 4px 14px;
+  background: var(--purple); color: #fff; border-radius: 999px;
+  font-weight: 800; font-size: .85rem; letter-spacing: .06em; text-transform: uppercase;
+}
+.hero h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 800; }
+.hl { color: var(--purple); background: linear-gradient(transparent 62%, var(--gold) 62%); padding: 0 4px; }
+.lead { font-size: 1.15rem; color: var(--muted); max-width: 52ch; margin: 18px 0 26px; }
+.cta { display: flex; flex-wrap: wrap; gap: 14px; }
+.hero-art img { width: min(380px, 100%); margin-inline: auto; border-radius: 32px; border: 5px solid var(--ink); box-shadow: 0 10px 0 var(--ink); animation: bob 4s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translateY(-10px) rotate(-2deg); } }
+
+/* sections */
+.section { padding: 72px 0; }
+.section.alt { background: var(--bg-alt); border-block: 3px solid var(--ink); }
+.section h2 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; }
+.sub { color: var(--muted); margin: 6px 0 32px; font-size: 1.05rem; }
+
+/* game cards */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 28px; }
+.card {
+  background: var(--card); border: 3px solid var(--ink); border-radius: var(--radius);
+  box-shadow: 0 6px 0 var(--ink); overflow: hidden; display: flex; flex-direction: column;
+  transition: transform .15s;
+}
+.card:hover { transform: translateY(-4px) rotate(-.4deg); }
+.thumb { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-bottom: 3px solid var(--ink); }
+.card-body { padding: 20px; display: flex; flex-direction: column; gap: 14px; flex: 1; }
+.card-body p { margin: 0; color: var(--muted); flex: 1; }
+.card-body .btn { align-self: flex-start; }
+.card-head { display: flex; align-items: center; gap: 14px; }
+.card-head h3 { font-size: 1.5rem; font-weight: 800; }
+.icon { width: 56px; height: 56px; border-radius: 14px; border: 3px solid var(--ink); object-fit: cover; flex: none; }
+.tag { display: inline-block; margin-top: 4px; padding: 2px 10px; border-radius: 999px; font-size: .75rem; font-weight: 800; border: 2px solid var(--ink); }
+.tag-live { background: #b7f5cb; }
+.tag-soon { background: var(--gold); }
+.soon-art {
+  display: grid; place-items: center;
+  background: repeating-linear-gradient(45deg, #efe6ff, #efe6ff 14px, #e4d7ff 14px, #e4d7ff 28px);
+}
+.soon-art span { font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 5rem; color: var(--purple); }
+.icon-soon { display: grid; place-items: center; background: var(--gold); font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 1.8rem; }
+
+/* videos */
+.videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; max-width: 840px; }
+.video {
+  position: relative; display: block; aspect-ratio: 9 / 14; overflow: hidden;
+  border: 3px solid var(--ink); border-radius: var(--radius); box-shadow: 0 6px 0 var(--ink);
+  background: var(--ink); color: #fff; text-decoration: none; transition: transform .15s;
+}
+.video:hover { transform: translateY(-4px); }
+.video img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.play {
+  position: absolute; top: 40%; left: 50%; translate: -50% -50%;
+  width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--red); border: 3px solid #fff; font-size: 1.4rem; padding-left: 4px;
+}
+.vtitle {
+  position: absolute; inset: auto 0 0 0; padding: 36px 14px 14px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, .85));
+  font-family: "Baloo 2", sans-serif; font-weight: 700; line-height: 1.2;
+}
+.more { margin: 28px 0 0; font-weight: 800; }
+
+/* connect */
+.connect { text-align: center; }
+.connect .sub { margin-inline: auto; }
+.links { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+
+/* footer */
+footer { background: var(--ink); color: #d9ceef; padding: 24px 0; font-size: .9rem; }
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
+
+@media (max-width: 760px) {
+  .hero { padding: 40px 0 48px; }
+  .hero-inner { grid-template-columns: 1fr; text-align: center; }
+  .hero-copy { order: 2; }
+  .lead { margin-inline: auto; }
+  .cta { justify-content: center; }
+  .hero-art img { width: 220px; }
+  .brand span { display: none; }
+  .section { padding: 52px 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-art img { animation: none; }
+  .btn, .card, .video { transition: none; }
+}
